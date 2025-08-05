@@ -12,7 +12,12 @@ o Power
 
 o Polynomial (with dynamic degree search, up to 100)
 
+
+
 It analyzes a dataset of (x, y) values and identifies the best-fitting model by calculating the coefficient of determination (R²) for each. The results are printed to both the console and an output file.
+
+
+
 
 
 
