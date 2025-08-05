@@ -31,10 +31,16 @@ If not found, it prompts the user to input data manually via the console.
 Regression Models:
 
 Logarithmic Regression: Fits the model y = a + b * log(x)
+
+
 Exponential Regression: Fits y = a * e^(b * x)
+
 Power Regression: Fits y = a * x^b
+
 Polynomial Regression: Fits y = a₀ + a₁x + a₂x² + ... + aₙxⁿ (with n as high as 100)
+
 Polynomial degree increases dynamically until the best fit is found or the coefficients become invalid.
+
 
 Model Evaluation:
 
