@@ -1,55 +1,46 @@
-# Regression_calculator
-A C++ program that performs Logarithmic, Exponential, Power, and Polynomial regression on a dataset and identifies the best-fitting model using R² (coefficient of determination).
+# Regression_Calculator
 
+**Regression_Calculator** is a C++ program that fits four regression models to your dataset and selects the best one using the coefficient of determination (R²).
 
-This C++ program performs curve fitting using four types of regression models:
+---
 
-o Logarithmic
+## Description
 
-o Exponential
+This tool performs curve fitting on (x, y) data points using:
+- **Logarithmic Regression** (`y = a + b·log(x)`)
+- **Exponential Regression** (`y = a·e^(b·x)`)
+- **Power Regression** (`y = a·x^b`)
+- **Polynomial Regression** (`y = a₀ + a₁x + a₂x² + … + aₙxⁿ`), with degree up to 100.
 
-o Power
+Each model’s quality is measured by **R²** (clamped to [0, 1]). Results are printed on the console and saved to `result.txt`.
 
-o Polynomial (with dynamic degree search, up to 100)
+---
 
+## ⚙ How It Works
 
+1. **Input**  
+   - Reads `(x, y)` pairs from `input.txt` if available.  
+   - Otherwise, prompts for manual entry.
 
-It analyzes a dataset of (x, y) values and identifies the best-fitting model by calculating the coefficient of determination (R²) for each. The results are printed to both the console and an output file.
+2. **Regression**  
+   - Fits each of the four models to the data.  
+   - Dynamically raises polynomial degree until the best fit or limit.
 
+3. **Evaluation**  
+   - Computes R² for every model.  
+   - Clamps R² between 0 and 1.
 
+4. **Selection**  
+   - Ranks models by R² and picks the highest.
 
+5. **Output**  
+   - Displays all equations with R² in the console.  
+   - Writes the best fit and its R² to `result.txt`.
 
+---
 
-  
-#  ⚙ How It Works
+##  Usage
 
-  Input Handling:
-
-The program reads data from input.txt (if available).
-If not found, it prompts the user to input data manually via the console.
-
-#  Regression Models:
-
-o Logarithmic Regression: Fits the model y = a + b * log(x)
-
-o Exponential Regression: Fits y = a * e^(b * x)
-
-o Power Regression: Fits y = a * x^b
-
-o Polynomial Regression: Fits y = a₀ + a₁x + a₂x² + ... + aₙxⁿ (with n as high as 100)
-
-o Polynomial degree increases dynamically until the best fit is found or the coefficients become invalid.
-
-
-#  Model Evaluation:
-
-Each regression is evaluated using the coefficient of determination (R²), which measures how well the model fits the data.
-R² is clamped between 0 and 1 to avoid invalid values.
-
-#  Best Fit Selection:
-All models are ranked by their R² score.
-
-#  Output:
-
-Console output with formatted regression equations and accuracies.
-Results are also written to a file named result.txt.
+```bash
+g++ regression_calculator.cpp -o regression_calculator -std=c++11 -O2
+./regression_calculator
